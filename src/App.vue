@@ -1,19 +1,32 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <NavBar />
+    <SettingPopup />
+    <router-view />
   </div>
 </template>
 
+
+<script>
+import SettingPopup from "./components/SettingPopup.vue";
+import NavBar from "./components/NavBar";
+export default {
+  name: "App",
+  components: {
+    NavBar,
+    SettingPopup
+  }
+};
+</script>
+
 <style lang="scss">
+body {
+  margin: 0px;
+  padding: 0px;
+  font-size: 0.9rem;
+}
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   color: #2c3e50;
 }
 
@@ -21,7 +34,6 @@
   padding: 30px;
 
   a {
-    font-weight: bold;
     color: #2c3e50;
 
     &.router-link-exact-active {
